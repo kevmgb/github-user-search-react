@@ -1,4 +1,5 @@
 import Card from "./Card";
+import './Main.css';
 
 function CardList({profiles}) {
     return (

@@ -1,14 +1,15 @@
+import axios from "axios";
 import { useState } from "react"
-
+import './Main.css';
 
 function Form({onSubmit}) {
     const [userName, setUserName] = useState("");
-    handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const resp = await axios.get(`https://api.github.com/users/${userName}`);
         onSubmit(resp.data);
         setUserName("");
-    }
+    };
     return (
         <form onSubmit={handleSubmit}>
             <input
@@ -22,3 +23,5 @@ function Form({onSubmit}) {
         </form>
     )
 }
+
+export default Form;
